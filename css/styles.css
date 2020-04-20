@@ -1,0 +1,15 @@
+div.texto {
+    text-align: center;
+    vertical-align: middle;
+    color: red;
+}
+
+div.medio {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+.row {
+    height: 50px;
+}
