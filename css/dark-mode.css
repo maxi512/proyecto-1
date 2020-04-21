@@ -112,3 +112,57 @@
     border-radius: 0;
     background-color: #303030;
 }
+
+[data-theme="dark"] .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0
+}
+
+[data-theme="dark"] .dropdown-menu {
+    position: absolute;
+    float: none
+}
+
+[data-theme="dark"] .navbar-light .navbar-brand {
+    color: #fff
+}
+
+[data-theme="dark"] .navbar-light .navbar-brand:focus,
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .5)
+}
+
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link.disabled {
+    color: rgba(255, 255, 255, .25)
+}
+
+[data-theme="dark"] .navbar-light .navbar-nav .active>.nav-link,
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link.active,
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link.show,
+[data-theme="dark"] .navbar-light .navbar-nav .show>.nav-link {
+    color: #fff
+}
+
+[data-theme="dark"] .navbar-light .navbar-toggler {
+    color: rgba(255, 255, 255, .5);
+    border-color: rgba(255, 255, 255, .1)
+}
+
+[data-theme="dark"] .navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+[data-theme="dark"] .navbar-light .navbar-text {
+    color: rgba(255, 255, 255, .5)
+}
+
+[data-theme="dark"] .navbar-light .navbar-text a {
+    color: #fff
+}
