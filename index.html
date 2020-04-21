@@ -75,7 +75,7 @@
         <div class="row"></div>
         <div class="row">
             <div class="col-4 medio">
-                <input type="text" id="texto" onkeyup="detectar();" class="form-control" placeholder="Ingrese sus caracteres aqui">
+                <input type="text" id="texto" onkeypress="myKeyPress(event);" onkeydown="myKeyDown()" class="form-control" placeholder="Ingrese sus caracteres aqui">
             </div>
             <div class="col-4 medio">
                 <span id="ascii" onmouseout="mostrarSeleccion();"></span>
