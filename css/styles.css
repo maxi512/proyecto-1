@@ -13,3 +13,24 @@ div.medio {
 .row {
     height: 50px;
 }
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.bottom-fixed-row {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.no-sides {
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
