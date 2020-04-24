@@ -3,6 +3,15 @@ var lastString = "";
 /**
  * Accion al seleccionar: Pendiente
  */
+
+function verificarMostrarJumbotron() {
+    if (localStorage.getItem("mostrarJumbotron") === "false") {
+        ocultar();
+    } else {
+        mostrar();
+    }
+}
+
 function mostrarSeleccion() {
     texto = window.getSelection().toString();
     if (texto != "") {
@@ -13,14 +22,18 @@ function mostrarSeleccion() {
  * Oculta Jumbotron
  */
 function ocultar() {
-    document.getElementById("jumbotron").style.display = "none";
+    document.getElementById("jumbotron").classList.add('sr-only');
+    //document.getElementById("jumbotron").hidden = true;
+    //document.getElementById("jumbotron").style.display = "none";
 }
 
 /**
  * Muestra Jumbotron
  */
 function mostrar() {
-    document.getElementById("jumbotron").style.display = "block";
+    document.getElementById("jumbotron").classList.remove('sr-only');
+    //document.getElementById("jumbotron").hidden = false;
+    //document.getElementById("jumbotron").style.display = "block";
 }
 
 /**
@@ -91,4 +104,13 @@ String.prototype.charCodeUTF32 = function() {
 function myPaste() {
     setTimeout(onModified1, 0);
 
+}
+
+function actualizar() {
+    checkbox = document.getElementById("checkbox");
+    if (checkbox.checked) {
+        localStorage.setItem("mostrarJumbotron", "false");
+    } else {
+        localStorage.setItem("mostrarJumbotron", "true");
+    }
 }
