@@ -17,7 +17,7 @@
 </head>
 <header class="navbar-header container d-flex flex-column no-sides mt-2">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Codificacion Ascii</a>
+        <a class="navbar-brand responsive-title" href="#">Codificacion Ascii</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,10 +29,14 @@
                         More
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item dropdown-item-text" href="#" onclick="mostrar();">Jumbotron</a>
+                        <a class="dropdown-item dropdown-item-text" href="#" onclick="mostrar();">
+                            Jumbotron</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item dropdown-item-text" href="#">About</a>
-                        <a class="dropdown-item dropdown-item-text" href="#">GitHub</a>
+                        <a class="dropdown-item dropdown-item-text" href="#">
+                            <i class="fas fa-info-circle"></i> About</a>
+                        <a class="dropdown-item dropdown-item-text" href="https://github.com/maxi512/proyecto-1">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
                     </div>
                 </li>
                 <li class="nav-link active mr-auto navbar-text">
@@ -54,26 +58,32 @@
         <div class="col-2"></div>
         <div class="col-8">
             <div class="jumbotron-fluid p-3 sr-only" id="jumbotron">
-                <h1 class="display-4">Hola usuario!</h1>
-                <p class="lead">En esta pagina usted podra convertir caracteres en sus distintas codificaciones!</p>
-                <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.
-                </p>
-                <div class="row border">
-                    <div class="col-4">
-                        <p class="lead">
-                            <a class="btn btn-primary btn-lg" href="#" role="button" onclick="ocultar();">Got it!</a>
+
+                <h1 class="display-10 responsive-title">Hola usuario!</h1>
+                <h2 class="lead responsive-text">En esta pagina usted podra convertir caracteres en sus distintas codificaciones!
+                    </p>
+
+                    <h3 class="responsive-text">It uses utility classes for typography and spacing to space content out within the larger container.
                         </p>
-                    </div>
-                    <div class="col-4 h-100 border mt-2">
-                        <input type="checkbox" class="form-check-input" id="checkbox" onclick="actualizar()">
-                        <label class="form-check-label" for="checkbox">Don't show me this again</label>
-                    </div>
-                    <div class="col-4"></div>
-                </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="lead">
+                                    <a class="btn btn-primary btn-block" role="button" onclick="ocultar();">Got
+                                        it!</a>
+                                </p>
+                            </div>
+                            <div class="col-sm-4 text-center no-pad">
+                                <input type="checkbox" class="form-check-input checkbox-inline" id="checkbox" onclick="actualizar()">
+                                <label class="form-check-label responsive-small align-top" for="checkbox">Don't
+                                    show me
+                                    this
+                                    again</label>
+                            </div>
+                        </div>
 
 
             </div>
+
         </div>
         <div class="col-2"></div>
     </div>
@@ -91,12 +101,12 @@
 </body>
 <footer class="footer container row bottom-fixed-row" id="footer">
     <div class="col-4"></div>
-    <div class="col-4 align-self-center text-center">
-        <span class="align-top">powered by </span>
-        <i class="fab fa-html5 big w3-large"></i>
-        <i class="fab fa-css3-alt w3-large"></i>
-        <i class="fab fa-js-square w3-large"></i>
-        <i class="fab fa-bootstrap w3-large"></i>
+    <div class="col-md-4 align-self-center text-center">
+        <span class="align-top responsive-small">powered by </span>
+        <i class="fab fa-html5 big w3-large" title="HTML5"></i>
+        <i class="fab fa-css3-alt w3-large" title="CSS3"></i>
+        <i class="fab fa-js-square w3-large" title="Javascript"></i>
+        <i class="fab fa-bootstrap w3-large" title="Bootstrap"></i>
     </div>
     <div class="col-4"></div>
 </footer>

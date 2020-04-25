@@ -34,3 +34,56 @@ body {
     margin-right: 0px;
     padding-right: 0px;
 }
+
+@media only screen and (min-width: 420px) {
+    .responsive-small {
+        font-size: 0.7rem;
+    }
+    .responsive-text {
+        font-size: 0.8rem;
+    }
+    .responsive-title {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    .responsive-small {
+        font-size: 0.8rem;
+    }
+    .responsive-text {
+        font-size: 0.9rem;
+    }
+    .responsive-title {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    .responsive-small {
+        font-size: 0.85rem;
+    }
+    .responsive-text {
+        font-size: 1rem;
+    }
+    .responsive-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .responsive-small {
+        font-size: 0.9rem;
+    }
+    .responsive-text {
+        font-size: 1.2rem;
+    }
+    .responsive-title {
+        font-size: 1.5rem;
+    }
+}
+
+.checkbox-inline {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
