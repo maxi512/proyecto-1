@@ -62,6 +62,7 @@ function calcularCodigosUnicode(texto) {
     }
 
     lastString = output.toUpperCase();
+    console.log("Devuelvo string!");
     return lastString;
 }
 

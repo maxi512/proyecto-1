@@ -35,6 +35,18 @@ body {
     padding-right: 0px;
 }
 
+@media only screen and (max-width: 420px) {
+    .responsive-small {
+        font-size: 0.9rem;
+    }
+    .responsive-text {
+        font-size: 1.2rem;
+    }
+    .responsive-title {
+        font-size: 1.3rem;
+    }
+}
+
 @media only screen and (min-width: 420px) {
     .responsive-small {
         font-size: 0.7rem;
