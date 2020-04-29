@@ -98,9 +98,7 @@
 
 [data-theme="dark"] input[type="text"] {
     display: block;
-    margin: 0 0 20px;
     text-emphasis-color: #fff;
-    padding: 8px 12px 10px 12px;
     color: #fff;
     border: 1px solid rgba(0, 0, 0, .5);
     background: rgba(0, 0, 0, .25);

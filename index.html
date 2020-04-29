@@ -32,7 +32,7 @@
                             More
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item dropdown-item-text" href="#" onclick="mostrar();">
+                            <a class="dropdown-item dropdown-item-text" href="#" onclick="mostrarJumbotron();">
                                 Jumbotron</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item dropdown-item-text" href="#">
@@ -56,44 +56,51 @@
     </header>
     <div class="row"></div>
     <div class="d-flex justify-content-center">
-        <div class="col-1 col-sm-1  col-md-2 col-lg-2"></div>
+        <div class="col-1 col-sm-1 col-md-2 col-lg-2"></div>
         <div class="col-10 col-sm-10 col-md-8 col-lg-8">
             <div class="jumbotron-fluid p-3 sr-only mb-3" id="jumbotron">
-
                 <h1 class="display-10 responsive-title">Hola usuario!</h1>
                 <h2 class="responsive-text">En esta pagina usted podra convertir caracteres en sus distintas codificaciones!
                 </h2>
 
-                <h3 class="lead responsive-text">It uses utility classes for typography and spacing to space content out within the larger container.
+                <h3 class="lead responsive-text">Ingrese los caracteres en el cuadro de texto y podra visualizar tanto su valor unicode como su codigo ascii
                 </h3>
-                <div class="row mb-3">
+                <div class="row mb-3 pt-1">
                     <div class="col-lg-3">
                         <p class="lead">
-                            <a class="btn btn-primary btn-block" role="button" onclick="ocultar();">Got
+                            <a class="btn btn-primary btn-block" role="button" onclick="ocultarJumbotron();">Got
                                 it!</a>
                         </p>
                     </div>
                     <div class="col-lg-4 text-center">
                         <input type="checkbox" class="form-check-input align-bottom" id="checkbox" onclick="actualizar()">
                         <label class="form-check-label responsive-small checkbox-inline" for="checkbox">Don't
-                            show me
-                            this
-                            again</label>
+                            show me this again</label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-1col-sm-1 col-md-2 col-lg-2"></div>
+        <div class="col-1 col-sm-1 col-md-2 col-lg-2"></div>
     </div>
-    <div class="row"></div>
-    <div class="row">
-        <div class="col-sm-4 medio">
+    <div class="row" id="separador"></div>
+    <div class="row justify-content-center">
+        <div class="col-sm-6 medio mt-2">
             <input type="text" id="texto" onpaste="onModified();" onkeydown="onModified();" oncut="onModified()" onkeydown="myKeyDown()" class="form-control" placeholder="Ingrese sus caracteres aqui">
         </div>
-        <div class="col-4 medio">
-            <span id="ascii" onmouseout="mostrarSeleccion();"></span>
+        <div class="col-sm-6 medio mt-2">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="button-group">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="options" id="ascii-button" autocomplete="off" checked=""
+                        onclick="setStateAscii();">Ascii
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="options" id="unicode-button" autocomplete="off"
+                        onclick="setStateUnicode();">Unicode
+                </label>
+            </div>
         </div>
-        <div class="col-4 medio">
+        <div class="col-sm-8 medio mt-4">
+            <span id="ascii" onmouseout="mostrarSeleccion();"></span>
         </div>
     </div>
     <footer class="footer container row bottom-fixed-row" id="footer">

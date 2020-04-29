@@ -1,4 +1,4 @@
-var lastString = "";
+var state = ""
 
 /**
  * Accion al seleccionar: Pendiente
@@ -6,9 +6,9 @@ var lastString = "";
 
 function verificarMostrarJumbotron() {
     if (localStorage.getItem("mostrarJumbotron") === "false") {
-        ocultar();
+        ocultarJumbotron();
     } else {
-        mostrar();
+        mostrarJumbotron();
     }
 }
 
@@ -21,19 +21,17 @@ function mostrarSeleccion() {
 /**
  * Oculta Jumbotron
  */
-function ocultar() {
+function ocultarJumbotron() {
     document.getElementById("jumbotron").classList.add('sr-only');
-    //document.getElementById("jumbotron").hidden = true;
-    //document.getElementById("jumbotron").style.display = "none";
+    document.getElementById("separador").classList.add('sr-only');
 }
 
 /**
  * Muestra Jumbotron
  */
-function mostrar() {
+function mostrarJumbotron() {
     document.getElementById("jumbotron").classList.remove('sr-only');
-    //document.getElementById("jumbotron").hidden = false;
-    //document.getElementById("jumbotron").style.display = "block";
+    document.getElementById("separador").classList.remove('sr-only');
 }
 
 /**
@@ -61,20 +59,47 @@ function calcularCodigosUnicode(texto) {
         i++;
     }
 
-    lastString = output.toUpperCase();
-    console.log("Devuelvo string!");
-    return lastString;
+    return output.toUpperCase();
+}
+/**
+ * Convierte una cadena en sus valores unicode
+ * @param {String} texto del cual se quiere saber sus valores unicode
+ */
+function calcularCodigosAscii(texto) {
+    var output = "";
+    var i = 0;
+    while (i < texto.length) {
+        add = "";
+        charCode = texto.charCodeAt(i);
+        if (charCode <= 255) {
+            add = charCode;
+        } else {
+            if (charCode >= 55296) {
+                i++;
+            }
+            add = "NaA"
+        }
+        output += add + " "
+        i++;
+    }
+
+    return output;
+
 }
 
 /**
- * Verifica si hay que modificar el texto
+ * Modifica la salida de acuerdo al texto ingresado y la codificacion seleccionada
  */
 function onModified1() {
     texto = document.getElementById("texto").value;
-
-    if (texto != lastString) {
-        document.getElementById("ascii").innerHTML = calcularCodigosUnicode(texto);
+    string = ""
+    if (state === "Unicode") {
+        string = calcularCodigosUnicode(texto);
+    } else {
+        string = calcularCodigosAscii(texto)
     }
+    document.getElementById("ascii").innerHTML = string;
+
 
 }
 
@@ -99,6 +124,7 @@ function myKeyDown() {
 String.prototype.charCodeUTF32 = function() {
     return ((((this.charCodeAt(0) - 0xD800) * 0x400) + (this.charCodeAt(1) - 0xDC00) + 0x10000));
 };
+
 /**
  * Action on paste
  */
@@ -107,6 +133,9 @@ function myPaste() {
 
 }
 
+/**
+ * Verifica si hay que mostrar jumbotron
+ */
 function actualizar() {
     checkbox = document.getElementById("checkbox");
     if (checkbox.checked) {
@@ -114,4 +143,14 @@ function actualizar() {
     } else {
         localStorage.setItem("mostrarJumbotron", "true");
     }
+}
+
+function setStateAscii() {
+    state = "Ascii"
+    onModified1();
+}
+
+function setStateUnicode() {
+    state = "Unicode"
+    onModified1();
 }
