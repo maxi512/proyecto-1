@@ -85,7 +85,17 @@
     <div class="row" id="separador"></div>
     <div class="row justify-content-center">
         <div class="col-sm-6 medio mt-2">
-            <input type="text" id="texto" onpaste="onModified();" onkeydown="onModified();" oncut="onModified()" onkeydown="myKeyDown()" class="form-control" placeholder="Ingrese sus caracteres aqui">
+            <div class="input-group">
+                <input type="text" id="texto" onpaste="onModified();" onkeydown="onModified();" oncut="onModified()" onkeydown="myKeyDown()" class="form-control" placeholder="Ingrese sus caracteres aqui">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-outline-secondary" onclick="addUserInput();"><i
+                            class="fa fa-plus" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownStorage"></div>
+                </div>
+            </div>
         </div>
         <div class="col-sm-6 medio mt-2">
             <div class="btn-group btn-group-toggle" data-toggle="buttons" id="button-group">
@@ -103,6 +113,8 @@
             <span id="ascii" onmouseout="mostrarSeleccion();"></span>
         </div>
     </div>
+
+
     <footer class="footer container row bottom-fixed-row" id="footer">
         <div class="col-4"></div>
         <div class="col-md-4 align-self-center text-center">
