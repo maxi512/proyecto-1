@@ -4,8 +4,27 @@ populateDropdown();
 function mostrarSeleccion() {
     texto = window.getSelection().toString();
     if (texto != "") {
+        let mostrar = "";
+        if (state === "Unicode") {
+            try {
+                aux = texto.substr(2, texto.length - 1);
+                mostrar = "'" + String.fromCodePoint(parseInt(aux, 16)) + "'";
+            } catch (RangeError) {
+                //No hago nada
+            }
 
+        } else {
+            mostrar = "'" + String.fromCodePoint(parseInt(texto)) + "'";
+        }
+
+        alertShowSelectedText(mostrar);
     }
+}
+
+function alertShowSelectedText(msg) {
+    document.getElementById("showInfo").textContent = msg;
+    $('#alert2').slideDown();
+    setTimeout(function() { $('#alert2').slideUp(); }, 2000);
 }
 
 
@@ -184,15 +203,29 @@ function addUserInput() {
     if (toStore != dropdown.firstChild.textContent && toStore !== "") {
         //obtengo guardadas
         const storedInputs = getStoredInputs();
-        ///añadpoal arreglo
+        ///añado al arreglo
         addToArray(storedInputs, toStore);
         //guardo
         localStorage.setItem("userInputs", JSON.stringify(storedInputs));
         //actualizo dropdown
         var newItem = createDropdownItem(toStore)
         dropdown.prepend(newItem);
+
+        alertStoredString(toStore)
     }
 
+}
+
+function alertStoredString(msg) {
+    document.getElementById("cadenaGuardada").textContent = msg;
+    $('#alert').slideDown();
+    setTimeout(function() { $('.alert').slideUp(); }, 1500);
+}
+
+function alertStoredString(msg) {
+    document.getElementById("cadenaGuardada").textContent = msg;
+    $('#alert').slideDown();
+    setTimeout(function() { $('.alert').slideUp(); }, 1500);
 }
 /**
  * obtiene las ultimas cadenas guardadas del local storage
@@ -262,5 +295,7 @@ function onClickDropdownItem() {
     const input = document.getElementById('texto');
     input.value = text;
     onModified1();
+
+
 }
 ////////////////////////////////Storage managment/////////////////////////////
