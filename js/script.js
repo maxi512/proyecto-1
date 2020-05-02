@@ -7,6 +7,7 @@ function mostrarSeleccion() {
         let mostrar = "";
         if (state === "Unicode") {
             try {
+                //Puede ser que el usuario seleccione algo que no es una codificacion
                 aux = texto.substr(2, texto.length - 1);
                 mostrar = "'" + String.fromCodePoint(parseInt(aux, 16)) + "'";
             } catch (RangeError) {
@@ -17,10 +18,15 @@ function mostrarSeleccion() {
             mostrar = "'" + String.fromCodePoint(parseInt(texto)) + "'";
         }
 
+        //Muestro msg
         alertShowSelectedText(mostrar);
     }
 }
 
+/**
+ * Muestra la seleccion del usuario convertida a caracter
+ * @param {*} msg caracter que selecciono el usuario
+ */
 function alertShowSelectedText(msg) {
     document.getElementById("showInfo").textContent = msg;
     $('#alert2').slideDown();
@@ -88,7 +94,7 @@ function calcularCodigosUnicode(texto) {
         if (codePoint >= 55296) {
             //Armo texto con surrogate pair
             pair = texto.charAt(i) + texto.charAt(i + 1) + "";
-            add = pair.charCodeUTF32();
+            add = charCodeUTF32(pair);
             //Salteo surrogate trail
             i++;
         } else {
@@ -110,12 +116,15 @@ function calcularCodigosAscii(texto) {
     while (i < texto.length) {
         add = "";
         charCode = texto.charCodeAt(i);
+        //Si pertenece a Ascii extendido
         if (charCode <= 255) {
             add = charCode;
         } else {
+            //Si es un surrogate pair
             if (charCode >= 55296) {
                 i++;
             }
+            //Not an Ascii
             add = "NaA"
         }
         output += add + " "
@@ -160,11 +169,12 @@ function myKeyDown() {
 }
 
 /**
- * Obtiene Unicode de surrogate pairs
+ * Obtiene el valor unicode a partir de un surrogate pair
+ * @param {String} surrogatePair del cual se quiere saber su codificacion 
  */
-String.prototype.charCodeUTF32 = function() {
-    return ((((this.charCodeAt(0) - 0xD800) * 0x400) + (this.charCodeAt(1) - 0xDC00) + 0x10000));
-};
+function charCodeUTF32(surrogatePair) {
+    return ((((surrogatePair.charCodeAt(0) - 0xD800) * 0x400) + (surrogatePair.charCodeAt(1) - 0xDC00) + 0x10000));
+}
 
 /**
  * Action on paste
@@ -178,11 +188,17 @@ function myPaste() {
 
 /////////////////////////////////ACtualiza states/////////////////////////////
 
+/**
+ * Cambia el estado a Ascii y actualiza
+ */
 function setStateAscii() {
     state = "Ascii"
     onModified1();
 }
 
+/**
+ * Cambia el estado a Unicode y actualiza
+ */
 function setStateUnicode() {
     state = "Unicode"
     onModified1();
@@ -216,17 +232,17 @@ function addUserInput() {
 
 }
 
+/**
+ * Muestra alerta cuando se guarda una cadena en el local storage
+ * @param {*} msg cadena que se guardo
+ */
 function alertStoredString(msg) {
     document.getElementById("cadenaGuardada").textContent = msg;
     $('#alert').slideDown();
     setTimeout(function() { $('.alert').slideUp(); }, 1500);
 }
 
-function alertStoredString(msg) {
-    document.getElementById("cadenaGuardada").textContent = msg;
-    $('#alert').slideDown();
-    setTimeout(function() { $('.alert').slideUp(); }, 1500);
-}
+
 /**
  * obtiene las ultimas cadenas guardadas del local storage
  */
