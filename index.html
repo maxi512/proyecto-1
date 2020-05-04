@@ -67,7 +67,7 @@
     </div>
     <div class="d-flex justify-content-center">
         <div class="col-1 col-sm-1 col-md-2 col-lg-2"></div>
-        <div class="col-10 col-sm-10 col-md-8 col-lg-8">
+        <div class="col-10 col-sm-10 col-md-8 col-lg-8 ">
             <div class="jumbotron-fluid p-3 sr-only mb-3" id="jumbotron">
                 <h1 class="display-10 responsive-title">Hola usuario!</h1>
                 <h2 class="responsive-text">En esta pagina usted podra convertir caracteres en sus distintas codificaciones!
@@ -101,8 +101,8 @@
     </div>
     <div class="row" id="separador"></div>
     <div class="row justify-content-center">
-        <div class="col-sm-6 medio mt-2">
-            <div class="input-group">
+        <div class="col-sm-6 col-9 medio mt-2">
+            <div class="input-group pr-3">
                 <input type="text" id="texto" onpaste="onModified();" onkeydown="onModified();" oncut="onModified()" class="form-control" placeholder="Ingrese sus caracteres aqui">
                 <div class="input-group-append">
                     <button type="button" id="add" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="top" onclick="addUserInput();"><i
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 mt-2 pr-0">
+        <div class="col-sm-6 col-3 mt-2 pr-0">
             <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons" id="button-group">
                 <label class="btn btn-primary active">
                     <input type="radio" name="options" id="ascii-button" autocomplete="off" checked=""
@@ -126,7 +126,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-8 medio mt-4">
+        <div class="col mt-4">
             <span id="ascii" onmouseup="mostrarSeleccion();"></span>
         </div>
     </div>
