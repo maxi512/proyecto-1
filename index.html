@@ -98,9 +98,9 @@
             <div class="input-group">
                 <input type="text" id="texto" onpaste="onModified();" onkeydown="onModified();" oncut="onModified()" class="form-control" placeholder="Ingrese sus caracteres aqui">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-outline-secondary" onclick="addUserInput();"><i
+                    <button type="button" id="add" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="top" onclick="addUserInput();"><i
                             class="fa fa-plus" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" id="storage" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" data-placement="right" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" id="dropdownStorage"></div>
@@ -111,7 +111,7 @@
             <div class="btn-group btn-group-toggle float-right" data-toggle="buttons" id="button-group">
                 <label class="btn btn-primary active">
                     <input type="radio" name="options" id="ascii-button" autocomplete="off" checked=""
-                        onclick="setStateAscii();">Ascii
+                        onclick="setStateAscii();" data-toggle="tooltip" data-placement="top" >Ascii
                 </label>
                 <label class="btn btn-primary">
                     <input type="radio" name="options" id="unicode-button" autocomplete="off"
@@ -136,15 +136,18 @@
         </div>
         <div class="col-4"></div>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/jumbotronManagment.js"></script>
     <script src="js/states.js"></script>
     <script src="js/storage.js"></script>
-    <script src="js/script.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/dark-mode-switch.min.js"></script>
+
 </body>
 
 </html>

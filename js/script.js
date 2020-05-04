@@ -1,6 +1,33 @@
 //Comportamiento por defecto
 var state = new Ascii();
 populateDropdown();
+setTooltips();
+
+function setTooltips() {
+    $(document).ready(function() {
+        $("#button-group").children().first().tooltip({
+            title: "Muestra resultado en ASCII decimal",
+            trigger: "hover"
+        });
+        $("#button-group").children().last().tooltip({
+            title: "Muestra resultado en Unicode Hexa",
+            trigger: "hover"
+        })
+        $("#add").tooltip({
+            title: "Guardar cadena ingresada",
+            trigger: "hover"
+        })
+
+        $("#add").tooltip({
+            title: "Guardar cadena ingresada",
+            trigger: "hover"
+        })
+        $("#storage").tooltip({
+            title: "Cadenas guardadas",
+            trigger: "hover"
+        })
+    });
+}
 
 /**
  * Accion al seleccionar texto: Mustra el caracter asociado a la codificacion seleccionada
