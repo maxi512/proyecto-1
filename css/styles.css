@@ -99,3 +99,8 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+.tooltip>.tooltip-inner {
+    background-color: #2b302e;
+    color: #FFFFFF;
+}

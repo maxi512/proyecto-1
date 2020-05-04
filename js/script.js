@@ -9,7 +9,8 @@ function setTooltips() {
             title: "Muestra resultado en ASCII decimal",
             trigger: "hover"
         });
-        $("#button-group").children().last().tooltip({
+
+        $("#button-group ").children().last().tooltip({
             title: "Muestra resultado en Unicode Hexa",
             trigger: "hover"
         })
@@ -90,14 +91,6 @@ function myKeyDown() {
  */
 function charCodeUTF32(surrogatePair) {
     return ((((surrogatePair.charCodeAt(0) - 0xD800) * 0x400) + (surrogatePair.charCodeAt(1) - 0xDC00) + 0x10000));
-}
-
-/**
- * Action on paste
- */
-function myPaste() {
-    setTimeout(onModified1, 0);
-
 }
 
 ///////////////////////////////Actualiza textos////////////////////////////////

@@ -164,3 +164,8 @@
 [data-theme="dark"] .navbar-light .navbar-text a {
     color: #fff
 }
+
+[data-theme="dark"] .tooltip>.tooltip-inner {
+    background-color: #111;
+    color: #FFFFFF;
+}
