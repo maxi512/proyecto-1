@@ -104,3 +104,9 @@ body {
     background-color: #2b302e;
     color: #FFFFFF;
 }
+
+.my-hr {
+    background-color: #4444;
+    height: 1px;
+    border: 0;
+}

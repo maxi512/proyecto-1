@@ -72,22 +72,29 @@
                 <h1 class="display-10 responsive-title">Hola usuario!</h1>
                 <h2 class="responsive-text">En esta pagina usted podra convertir caracteres en sus distintas codificaciones!
                 </h2>
-
-                <h3 class="lead responsive-text">Ingrese los caracteres en el cuadro de texto y podra visualizar tanto su valor unicode como su codigo ascii
-                </h3>
-                <div class="row mb-3 pt-1">
-                    <div class="col-lg-3">
-                        <p class="lead">
-                            <a class="btn btn-primary btn-block" role="button" onclick="ocultarJumbotron();">Got
-                                it!</a>
-                        </p>
+                <div class="container p-0">
+                    <div class="row d-none d-md-block">
+                        <div class="col">
+                            <h3 class="lead responsive-text">Ingrese los caracteres en el cuadro de texto y podra visualizar tanto su valor unicode como su codigo ascii
+                            </h3>
+                        </div>
                     </div>
-                    <div class="col-lg-4 text-center">
-                        <input type="checkbox" class="form-check-input align-bottom" id="checkbox" onclick="actualizar()">
-                        <label class="form-check-label responsive-small checkbox-inline" for="checkbox">Don't
+                    <hr class="my-4 my-hr">
+                    <div class="row mb-3">
+                        <div class="col-lg-3">
+                            <p class="lead">
+                                <a class="btn btn-primary btn-block" role="button" onclick="ocultarJumbotron();">Got
+                                it!</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <input type="checkbox" class="form-check-input align-bottom" id="checkbox" onclick="actualizar()">
+                            <label class="form-check-label responsive-small checkbox-inline" for="checkbox">Don't
                             show me this again</label>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="col-1 col-sm-1 col-md-2 col-lg-2"></div>
