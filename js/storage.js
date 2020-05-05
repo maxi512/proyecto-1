@@ -5,22 +5,29 @@ function addUserInput() {
     const toStore = document.getElementById("texto").value;
     const dropdown = document.getElementById("dropdownStorage");
 
-    //Solo guardo si el input no es igual al ultimo guardado y no es vacio
-    if (toStore != dropdown.firstChild.textContent && toStore !== "") {
-        //obtengo guardadas
-        const storedInputs = getStoredInputs();
-        ///añado al arreglo
-        addToArray(storedInputs, toStore);
-        //guardo
-        localStorage.setItem("userInputs", JSON.stringify(storedInputs));
-        //actualizo dropdown
-        var newItem = createDropdownItem(toStore)
-        dropdown.prepend(newItem);
+    let storedInputs = getStoredInputs();
+    if (JSON.stringify(storedInputs) === JSON.stringify([])) {
 
-        //Muestro alerta
-        alertStoredString(toStore)
+        saveUserInput(storedInputs, toStore);
+
+    } else {
+        //Solo guardo si el input no es igual al ultimo guardado y no es vacio
+        if (toStore != dropdown.firstChild.textContent && toStore !== "") {
+            saveUserInput(storedInputs, toStore);
+        }
     }
+}
 
+function saveUserInput(storedInputs, toStore) {
+    const dropdown = document.getElementById("dropdownStorage");
+    ///añado al arreglo
+    addToArray(storedInputs, toStore);
+    //guardo
+    localStorage.setItem("userInputs", JSON.stringify(storedInputs));
+    //actualizo dropdown
+    var newItem = createDropdownItem(toStore)
+    dropdown.prepend(newItem);
+    alertStoredString(toStore);
 }
 
 /**
