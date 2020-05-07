@@ -110,3 +110,7 @@ body {
     height: 1px;
     border: 0;
 }
+
+body {
+    transition: .4s linear all;
+}
