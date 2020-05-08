@@ -37,7 +37,7 @@ function mostrarSeleccion() {
     texto = window.getSelection().toString();
     if (texto != "") {
         try {
-            let mostrar = state.getAlertMessage(texto);
+            let mostrar = state.getMessageforAlert(texto);
             //Muestro msg
             alertShowSelectedText(mostrar);
         } catch (RangeError) {
@@ -58,21 +58,19 @@ function alertShowSelectedText(msg) {
 }
 
 
-///////////////////////////////Actualiza textos////////////////////////////////
 /**
  * Imprime la salida de acuerdo al texto ingresado y la codificacion seleccionada
  */
-function onModified1() {
+function printOutput() {
     texto = document.getElementById("texto").value;
-    string = state.calcularCodigo(texto);
+    string = state.calculateCodification(texto);
     document.getElementById("ascii").innerHTML = string;
-
-
 }
 
-//Espera a que se pueda leer el texto
+//Accion a realizar cuando se modifica el texto
 function onModified() {
-    setTimeout(onModified1, 0);
+    //Espera a que el texto este en el input
+    setTimeout(printOutput, 0);
 }
 
 /**
@@ -86,23 +84,11 @@ function myKeyDown() {
 }
 
 /**
- * Obtiene el valor unicode a partir de un surrogate pair
- * @param {String} surrogatePair del cual se quiere saber su codificacion 
- */
-function charCodeUTF32(surrogatePair) {
-    return ((((surrogatePair.charCodeAt(0) - 0xD800) * 0x400) + (surrogatePair.charCodeAt(1) - 0xDC00) + 0x10000));
-}
-
-///////////////////////////////Actualiza textos////////////////////////////////
-
-/////////////////////////////////ACtualiza states/////////////////////////////
-
-/**
  * Cambia el estado a Ascii y actualiza
  */
 function setStateAscii() {
     state = new Ascii();
-    onModified1();
+    printOutput();
 }
 
 /**
@@ -110,7 +96,5 @@ function setStateAscii() {
  */
 function setStateUnicode() {
     state = new Unicode();
-    onModified1();
+    printOutput();
 }
-
-/////////////////////////////////Actualiza states/////////////////////////////

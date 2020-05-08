@@ -5,11 +5,9 @@ function addUserInput() {
     const toStore = document.getElementById("texto").value;
     const dropdown = document.getElementById("dropdownStorage");
 
-    let storedInputs = getStoredInputs();
+    const storedInputs = getStoredInputs();
     if (JSON.stringify(storedInputs) === JSON.stringify([])) {
-
         saveUserInput(storedInputs, toStore);
-
     } else {
         //Solo guardo si el input no es igual al ultimo guardado y no es vacio
         if (toStore != dropdown.firstChild.textContent && toStore !== "") {
@@ -17,7 +15,11 @@ function addUserInput() {
         }
     }
 }
-
+/**
+ * Guarda en el local storage
+ * @param {Array} storedInputs arreglo con los elementos guardados en el local storage
+ * @param {String} toStore nuevo input a guardar
+ */
 function saveUserInput(storedInputs, toStore) {
     const dropdown = document.getElementById("dropdownStorage");
     ///añado al arreglo
@@ -25,7 +27,7 @@ function saveUserInput(storedInputs, toStore) {
     //guardo
     localStorage.setItem("userInputs", JSON.stringify(storedInputs));
     //actualizo dropdown
-    var newItem = createDropdownItem(toStore)
+    const newItem = createDropdownItem(toStore)
     dropdown.prepend(newItem);
     alertStoredString(toStore);
 }
@@ -110,7 +112,7 @@ function onClickDropdownItem() {
     const input = document.getElementById('texto');
     input.value = text;
     //Actualizo
-    onModified1();
+    printOutput();
 
 
 }

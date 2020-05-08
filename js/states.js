@@ -1,9 +1,7 @@
 class State {
     constructor() {}
-    calcularCodigo() {}
-    getAlertMessage(texto) {
-
-    }
+    calculateCodification() {}
+    getMessageforAlert(texto) {}
 }
 
 
@@ -11,7 +9,7 @@ class Unicode extends State {
     constructor() {
         super();
     }
-    calcularCodigo(texto) {
+    calculateCodification(texto) {
         let output = "";
         let pair = "";
         let i = 0;
@@ -36,7 +34,16 @@ class Unicode extends State {
 
         return output.toUpperCase();
     }
-    getAlertMessage(texto) {
+
+    /**
+     * Obtiene el valor unicode a partir de un surrogate pair
+     * @param {String} surrogatePair del cual se quiere saber su codificacion 
+     */
+    charCodeUTF32(surrogatePair) {
+        return ((((surrogatePair.charCodeAt(0) - 0xD800) * 0x400) + (surrogatePair.charCodeAt(1) - 0xDC00) + 0x10000));
+    }
+
+    getMessageforAlert(texto) {
         let aux = texto.substr(2, texto.length - 1);
         return "'" + String.fromCodePoint(parseInt(aux, 16)) + "'";
     }
@@ -46,7 +53,7 @@ class Ascii extends State {
     constructor() {
         super();
     }
-    calcularCodigo(texto) {
+    calculateCodification(texto) {
         let output = "";
         let i = 0;
         let charCode = "";
@@ -71,7 +78,7 @@ class Ascii extends State {
 
         return output;
     }
-    getAlertMessage(texto) {
+    getMessageforAlert(texto) {
         return "'" + String.fromCodePoint(parseInt(texto)) + "'";
     }
 }
