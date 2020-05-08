@@ -2,15 +2,16 @@
  * Almacena en el local storage la cadena actual y lo añade al dropdown menu correspondiente
  */
 function addUserInput() {
-    const toStore = document.getElementById("texto").value;
-    const dropdown = document.getElementById("dropdownStorage");
+    const toStore = $("#texto").val();
+    const dropdown = $("#dropdownStorage");
 
     const storedInputs = getStoredInputs();
     if (JSON.stringify(storedInputs) === JSON.stringify([])) {
         saveUserInput(storedInputs, toStore);
     } else {
         //Solo guardo si el input no es igual al ultimo guardado y no es vacio
-        if (toStore != dropdown.firstChild.textContent && toStore !== "") {
+        const firstDropdownElement = dropdown.children().first()
+        if (toStore != firstDropdownElement.text() && toStore !== "") {
             saveUserInput(storedInputs, toStore);
         }
     }
@@ -21,7 +22,7 @@ function addUserInput() {
  * @param {String} toStore nuevo input a guardar
  */
 function saveUserInput(storedInputs, toStore) {
-    const dropdown = document.getElementById("dropdownStorage");
+    const dropdown = $("#dropdownStorage");
     ///añado al arreglo
     addToArray(storedInputs, toStore);
     //guardo
@@ -63,7 +64,7 @@ function addToArray(arr, toStore) {
  * @param {*} msg cadena que se guardo
  */
 function alertStoredString(msg) {
-    document.getElementById("cadenaGuardada").textContent = msg;
+    $("#cadenaGuardada").text(msg);
     $('#alert').slideDown();
     setTimeout(function() { $('.alert').slideUp(); }, 1500);
 }
@@ -73,7 +74,7 @@ function alertStoredString(msg) {
  * Llena el dropdown menu a partir de lo que esta guardado en el local storage
  */
 function populateDropdown() {
-    let dropdown = document.getElementById("dropdownStorage");
+    let dropdown = $("#dropdownStorage");
     const storedInputs = getStoredInputs();
     for (let i = 0; i < storedInputs.length; i++) {
         const inputStored = storedInputs[i];
@@ -91,7 +92,7 @@ function createDropdownItem(text) {
     newItem.classList.add("dropdown-item");
     newItem.href = "#";
     newItem.textContent = text;
-    newItem.addEventListener('click', onClickDropdownItem)
+    newItem.addEventListener('click', onClickDropdownItem);
     return newItem;
 }
 
@@ -99,8 +100,8 @@ function createDropdownItem(text) {
  * Remueve el ultimo elemento del dropdown menu que contiene las cadenas en local storage
  */
 function removeLastElementInDropdown() {
-    const dropdown = document.getElementById("dropdownStorage");
-    dropdown.removeChild(dropdown.lastChild);
+    const dropdown = $("#dropdownStorage");
+    dropdown.children().last().remove();
 }
 
 /**
@@ -109,8 +110,7 @@ function removeLastElementInDropdown() {
  */
 function onClickDropdownItem() {
     const text = this.textContent;
-    const input = document.getElementById('texto');
-    input.value = text;
+    $('#texto').val(text);
     //Actualizo
     printOutput();
 

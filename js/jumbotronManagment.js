@@ -2,8 +2,8 @@
  * Verifica si hay que mostrar jumbotron
  */
 function actualizar() {
-    checkbox = document.getElementById("checkbox");
-    if (checkbox.checked) {
+    const checkbox = $("#checkbox");
+    if (checkbox.is(":checked")) {
         localStorage.setItem("mostrarJumbotron", "false");
     } else {
         localStorage.setItem("mostrarJumbotron", "true");
@@ -26,14 +26,14 @@ function verificarMostrarJumbotron() {
  * Oculta Jumbotron
  */
 function ocultarJumbotron() {
-    document.getElementById("jumbotron").classList.add('sr-only');
-    document.getElementById("separador").classList.add('sr-only');
+    $("#jumbotron").addClass('sr-only');
+    $("#separador").addClass('sr-only');
 }
 
 /**
  * Muestra Jumbotron
  */
 function mostrarJumbotron() {
-    document.getElementById("jumbotron").classList.remove('sr-only');
-    document.getElementById("separador").classList.remove('sr-only');
+    $("#jumbotron").removeClass('sr-only');
+    $("#separador").removeClass('sr-only');
 }

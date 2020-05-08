@@ -52,7 +52,7 @@ function mostrarSeleccion() {
  * @param {*} msg caracter que selecciono el usuario
  */
 function alertShowSelectedText(msg) {
-    document.getElementById("showInfo").textContent = msg;
+    $("#showInfo").text(msg);
     $('#alert2').slideDown();
     setTimeout(function() { $('#alert2').slideUp(); }, 2000);
 }
@@ -62,9 +62,9 @@ function alertShowSelectedText(msg) {
  * Imprime la salida de acuerdo al texto ingresado y la codificacion seleccionada
  */
 function printOutput() {
-    texto = document.getElementById("texto").value;
-    string = state.calculateCodification(texto);
-    document.getElementById("ascii").innerHTML = string;
+    const texto = $("#texto").val();
+    const codification = state.calculateCodification(texto);
+    $("#ascii").text(codification);
 }
 
 //Accion a realizar cuando se modifica el texto
