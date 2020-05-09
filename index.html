@@ -56,7 +56,7 @@
             </div>
         </nav>
     </header>
-    <div class="row">
+    <div class="row" style="min-height:50px;">
         <div class="col">
             <div class="alert alert-success" id="alert" role="alert" style="display:none;">Acabas de guardar la cadena
                 <strong id="cadenaGuardada"></strong></div>
@@ -126,13 +126,15 @@
                 </label>
             </div>
         </div>
-        <div class="col mt-4 medio">
+    </div>
+    <div class="row"></div>
+    <div class="row" style="overflow-y: auto; height: 59vh;">
+        <div class="col">
             <span id="ascii" onmouseup="mostrarSeleccion();"></span>
         </div>
     </div>
+    <footer class="footer container row bottom-fixed-row p-5" style="min-height: 25px;" id="footer">
 
-
-    <footer class="footer container row bottom-fixed-row" id="footer">
         <div class="col-4"></div>
         <div class="col-md-4 align-self-center text-center">
             <span class="align-top responsive-small">powered by </span>
@@ -142,8 +144,8 @@
             <i class="fab fa-bootstrap w3-large" title="Bootstrap"></i>
         </div>
         <div class="col-4"></div>
-    </footer>
 
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/jumbotronManagment.js"></script>
@@ -156,5 +158,6 @@
     <script src="js/dark-mode-switch.min.js"></script>
 
 </body>
+
 
 </html>
