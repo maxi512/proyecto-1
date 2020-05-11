@@ -48,16 +48,6 @@ function mostrarSeleccion() {
 }
 
 /**
- * Muestra la seleccion del usuario convertida a caracter
- * @param {*} msg caracter que selecciono el usuario
- */
-function alertShowSelectedText(msg) {
-    $("#showInfo").text(msg);
-    animateAlert("alert2", 2000);
-}
-
-
-/**
  * Imprime la salida de acuerdo al texto ingresado y la codificacion seleccionada
  */
 function printOutput() {
@@ -96,33 +86,4 @@ function setStateAscii() {
 function setStateUnicode() {
     state = new Unicode();
     printOutput();
-}
-
-/**
- * Borra las cadenas almacenadas y muestra una alerta
- */
-function emptyDropdown() {
-    if (!isEmptyUserInputs()) {
-        $('#dropdownStorage').empty();
-        cleanLocalStorage();
-        showEmptyStorageAlert();
-    }
-
-}
-
-/**
- * Muestra las alerta correspondiente al vaciar los inputs
- */
-function showEmptyStorageAlert() {
-    animateAlert("alertEmpty");
-}
-
-/**
- * Realiza la animacion de un alert
- * @param {String} id del alert a animar
- * @param {Int} timeout para la animacion
- */
-function animateAlert(id, timeout = 1500) {
-    $('#' + id).slideDown();
-    setTimeout(function() { $('#' + id).slideUp(); }, timeout);
 }

@@ -34,10 +34,8 @@
                             More
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item dropdown-item-text" href="#" onclick="mostrarJumbotron();">
-                                Jumbotron</a>
-                            <a class="dropdown-item dropdown-item-text" href="#" onclick="emptyDropdown();">
-                                Borrar Cadenas Guardadas</a>
+                            <a class="dropdown-item dropdown-item-text" href="#" onclick="mostrarJumbotron();"><i class="fas fa-info-circle"></i> Jumbotron</a>
+                            <a class="dropdown-item dropdown-item-text" href="#" onclick="emptyDropdown();"><i class="fas fa-trash-alt"></i> Borrar Historial</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item dropdown-item-text" href="https://github.com/maxi512/proyecto-1">
                                 <i class="fab fa-github"></i> GitHub
@@ -57,10 +55,9 @@
         </nav>
     </header>
     <div class="row" style="min-height:50px;">
-        <div class="col">
-            <div class="alert alert-success" id="alert" role="alert" style="display:none;">Acabas de guardar la cadena
-                <strong id="cadenaGuardada"></strong></div>
-
+        <div class="col" id="alertCol">
+            <div class='alert alert-success' id='alert' role='alert' style='display: none;'>Acabas de guardar la cadena
+                <strong id='cadenaGuardada'></strong></div>
             <div class="alert alert-dark" id="alert2" role="alert" style="display:none;">Has seleccionado el caracter
                 <strong id="showInfo"></strong></div>
             <div class="alert alert-warning" id="alertEmpty" role="alert" style="display:none;">Has borrado las cadenas almacenadas</div>
@@ -149,10 +146,11 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/dropdownManagment.js"></script>
+    <script src="js/alerts.js"></script>
     <script src="js/jumbotronManagment.js"></script>
     <script src="js/states.js"></script>
     <script src="js/storage.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
