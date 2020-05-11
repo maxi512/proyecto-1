@@ -53,8 +53,7 @@ function mostrarSeleccion() {
  */
 function alertShowSelectedText(msg) {
     $("#showInfo").text(msg);
-    $('#alert2').slideDown();
-    setTimeout(function() { $('#alert2').slideUp(); }, 2000);
+    animateAlert("alert2", 2000);
 }
 
 
@@ -97,4 +96,33 @@ function setStateAscii() {
 function setStateUnicode() {
     state = new Unicode();
     printOutput();
+}
+
+/**
+ * Borra las cadenas almacenadas y muestra una alerta
+ */
+function emptyDropdown() {
+    if (!isEmptyUserInputs()) {
+        $('#dropdownStorage').empty();
+        cleanLocalStorage();
+        showEmptyStorageAlert();
+    }
+
+}
+
+/**
+ * Muestra las alerta correspondiente al vaciar los inputs
+ */
+function showEmptyStorageAlert() {
+    animateAlert("alertEmpty");
+}
+
+/**
+ * Realiza la animacion de un alert
+ * @param {String} id del alert a animar
+ * @param {Int} timeout para la animacion
+ */
+function animateAlert(id, timeout = 1500) {
+    $('#' + id).slideDown();
+    setTimeout(function() { $('#' + id).slideUp(); }, timeout);
 }

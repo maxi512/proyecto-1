@@ -58,6 +58,13 @@ function addToArray(arr, toStore) {
 
 }
 
+/**
+ * Setea el item "userInputs" en un arreglo vacio
+ */
+function cleanLocalStorage() {
+    localStorage.setItem("userInputs", JSON.stringify([]));
+}
+
 
 /**
  * Muestra alerta cuando se guarda una cadena en el local storage
@@ -65,8 +72,7 @@ function addToArray(arr, toStore) {
  */
 function alertStoredString(msg) {
     $("#cadenaGuardada").text(msg);
-    $('#alert').slideDown();
-    setTimeout(function() { $('.alert').slideUp(); }, 1500);
+    animateAlert("alert");
 }
 
 
@@ -114,5 +120,13 @@ function onClickDropdownItem() {
     //Actualizo
     printOutput();
 
+}
 
+/**
+ * Devuelve true si las userInputs almacenadas en el localStorage son 0
+ * Devuelve false en caso contrario
+ */
+function isEmptyUserInputs() {
+    const userInputs = JSON.parse(localStorage.getItem("userInputs"));
+    return userInputs.length == 0;
 }
