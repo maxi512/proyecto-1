@@ -22,7 +22,7 @@ class Unicode extends State {
             if (codePoint >= 55296) {
                 //Armo texto con surrogate pair
                 pair = texto.charAt(i) + texto.charAt(i + 1) + "";
-                add = charCodeUTF32(pair);
+                add = this.charCodeUTF32(pair);
                 //Salteo surrogate trail
                 i++;
             } else {
